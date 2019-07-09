@@ -18,13 +18,13 @@ Additionally, airports associated with `port_of_entry` could be identified throu
 <img src="./images/map.png"/>
 
 ## Data Storage
-<p align="center"><img src="./images/redshift.png" style="height: 100%; width: 100%; max-width: 200px" /></p>
+<p align="center"><img src="./images/redshift.png" style="height: 100%; width: 100%; max-width: 100px" /></p>
 Data was stored in S3 buckets in a collection of CSV and PARQUET files. The immigration dataset extends to several million rows and thus this dataset was converted to PARQUET files to allow for easy data manipulation and processing through Dask and the ability to write to Redshift.<br><br>
 <p align="center"><img src="./images/dask.png" style="height: 100%; width: 100%; max-width: 200px" /></p>
 Dask is an extremely powerful and flexible library to handle parallel computing for dataframes in Python. Through this library, I was able to scale pandas and numpy workflows with minimal overhead. Whilst PySpark is a great API to Spark and tool to handle big data, I also highly recommend Dask, which you can read more about [here](https://dask.org/).
 
 ## ETL Pipeline
-<p align="center"><img src="./images/airflow.png" style="height: 100%; width: 100%; max-width: 200px" /></p>
+<p align="center"><img src="./images/airflow.png" style="height: 100%; width: 100%; max-width: 100px" /></p>
 Defining the data model and creating the star schema involves various steps, made significantly easier through the use of Airflow. The process of extracting files from S3 buckets, transforming the data and then writing CSV and PARQUET files to Redshift is accomplished through various tasks highlighted below in the ETL Dag graph. These steps include:
 - Extracting data from SAS Documents and writing as CSV files to S3 immigration bucket
 - Extracting remaining CSV and PARQUET files from S3 immigration bucket
