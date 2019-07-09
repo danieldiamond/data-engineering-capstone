@@ -29,13 +29,13 @@ class SQLQueries:
         COMPUPDATE OFF
         TRUNCATECOLUMNS
         CSV;
-    """ # noqa # noqa
+    """ # noqa
 
     COPY_PARQUET_TABLE = """
         COPY {schema}.{table} FROM '{s3_uri}'
         IAM_ROLE '{aws_iam_role}'
         FORMAT AS PARQUET;
-    """ # noqa # noqa
+    """ # noqa
 
     INCREMENTAL_APPEND = """
         ALTER TABLE {schema}.{table} APPEND FROM {schema}.{staged_table} FILLTARGET;
@@ -185,4 +185,4 @@ class SQLQueries:
     		code INT,
     		reason_for_travel VARCHAR
         );
-    """ # noqa # noqa
+    """ # noqa
