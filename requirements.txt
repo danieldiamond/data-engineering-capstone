@@ -1,0 +1,6 @@
+regex
+pandas
+s3fs
+psycopg2-binary
+cryptography
+boto3
